@@ -91,11 +91,13 @@ stdenv.mkDerivation {
     mkdir -p \
       $out/share/hermes-desktop \
       $out/share/applications \
-      $out/share/icons/hicolor/1024x1024/apps \
+      $out/share/icons/hicolor/512x512/apps \
+      $out/share/pixmaps \
       $out/bin
     cp -r ${renderer}/* $out/share/hermes-desktop/
     cp ${desktopItem}/share/applications/* $out/share/applications/
-    cp ${npm.src}/apps/desktop/assets/icon.png $out/share/icons/hicolor/1024x1024/apps/hermes-desktop.png
+    cp ${npm.src}/apps/desktop/assets/icon.png $out/share/icons/hicolor/512x512/apps/hermes-desktop.png
+    cp ${npm.src}/apps/desktop/assets/icon.png $out/share/pixmaps/hermes-desktop.png
 
     # Wrap the nixpkgs electron binary to launch our app.  Set
     # HERMES_DESKTOP_HERMES to the absolute path of the nix-built `hermes`
